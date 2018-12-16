@@ -20,5 +20,8 @@ RUN pecl install mcrypt-1.0.1 \
     && pecl install imagick-3.4.3 \
     && docker-php-ext-enable mcrypt redis xdebug imagick
 
-
+# install composer
+RUN curl -sS https://getcomposer.org/installer | \
+  php -- --install-dir=/usr/local/bin --filename=composer
+  
 RUN echo date.timezone=Asia/Bangkok > /usr/local/etc/php/conf.d/timezone.ini
